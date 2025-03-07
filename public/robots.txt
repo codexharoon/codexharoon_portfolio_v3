@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://codexharoon.com
+
+# Sitemaps
+Sitemap: https://codexharoon.com/sitemap.xml
+Sitemap: https://codexharoon.com/server-sitemap.xml
