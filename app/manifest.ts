@@ -1,5 +1,8 @@
 import { MetadataRoute } from "next";
 
+// Add this line to indicate this route is static
+// export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Haroon - Full Stack Web Engineer",

@@ -1,0 +1,89 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Redirect non-www to www (uncomment if needed)
+  # RewriteCond %{HTTP_HOST} ^codexharoon\.com [NC]
+  # RewriteRule ^(.*)$ https://www.codexharoon.com/$1 [L,R=301]
+  
+  # Handle trailing slashes
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)/$ /$1 [L,R=301]
+  
+  # If the requested resource doesn't exist as a file
+  RewriteCond %{REQUEST_FILENAME} !-f
+  # If the requested resource doesn't exist as a directory
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # For HTML files - serve the .html file without showing extension in URL
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+  
+  # For directories with index.html
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.*)$ $1/index.html [L]
+  
+  # Custom 404 error page
+  ErrorDocument 404 /404.html
+  
+  # Security Headers
+  <IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # You may need to adjust the CSP based on external resources you're using
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.vercel-analytics.com *.vercel-insights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: picsum.photos i.pravatar.cc; font-src 'self'; connect-src 'self' *.vercel-analytics.com *.vercel-insights.com; frame-src 'self'; object-src 'none';"
+  </IfModule>
+  
+  # Enable compression
+  <IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+  </IfModule>
+  
+  # Set caching headers
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+  </FilesMatch>
+  
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+  
+  <FilesMatch "\.(jpg|jpeg|png|gif|ico|svg|webp|avif)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+  
+  <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect .htaccess file
+<Files .htaccess>
+  Order Allow,Deny
+  Deny from all
+</Files>
+
+# Protect hidden files
+<FilesMatch "^\.">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>

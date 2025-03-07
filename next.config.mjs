@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // eslint:{
+  //   ignoreDuringBuilds: true,
+  // },
+  // output: 'export',
+  // distDir: 'build',
   images: {
     remotePatterns : [
       {
@@ -12,14 +17,9 @@ const nextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
-
   },
   compress: true,
   poweredByHeader: false,
-  // i18n: {
-  //   locales: ['en'],
-  //   defaultLocale: 'en',
-  // },
 };
 
 export default nextConfig;
