@@ -1,69 +1,63 @@
 import type { Metadata, Viewport } from "next";
 import { HeroUIProvider } from "@heroui/react";
 import { Footer } from "@/components/layout/footer";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { SEO, PERSONAL_INFO } from "@/data/constants";
 import "./globals.css";
 
-// Font configuration with display swap for better performance
-const montserrat = Montserrat({
+// Inter — closest web font to SF Pro
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700"],
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
-  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 // Metadata for SEO
 export const metadata: Metadata = {
   title: {
-    template: "%s | Haroon - Full Stack Web Engineer",
-    default: "Haroon - Full Stack Web Engineer",
+    template: SEO.titleTemplate,
+    default: SEO.title,
   },
-  description: "Portfolio of Haroon, a Full Stack Web Engineer specializing in modern web technologies.",
-  keywords: ["web development", "full stack", "react", "node.js", "javascript", "portfolio", "next.js"],
-  authors: [{ name: "Haroon", url: "https://codexharoon.com" }],
-  creator: "Haroon",
-  publisher: "Code x Haroon",
+  description: SEO.description,
+  keywords: [...SEO.keywords],
+  authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.website }],
+  creator: PERSONAL_INFO.name,
+  publisher: PERSONAL_INFO.brandName,
   formatDetection: {
     email: false,
     telephone: false,
     address: false,
   },
-  metadataBase: new URL("https://codexharoon.com"),
+  metadataBase: new URL(PERSONAL_INFO.website),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Haroon - Full Stack Web Engineer",
-    description: "Portfolio of Haroon, a Full Stack Web Engineer specializing in modern web technologies.",
-    url: "https://codexharoon.com",
-    siteName: "Code x Haroon",
+    title: SEO.title,
+    description: SEO.description,
+    url: PERSONAL_INFO.website,
+    siteName: PERSONAL_INFO.brandName,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/profile.jpg",
         width: 1200,
         height: 630,
-        alt: "Haroon - Full Stack Web Engineer",
+        alt: `${PERSONAL_INFO.name} — ${PERSONAL_INFO.title}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haroon - Full Stack Web Engineer",
-    description: "Portfolio of Haroon, a Full Stack Web Engineer specializing in modern web technologies.",
+    title: SEO.title,
+    description: SEO.description,
     creator: "@thecodexharoon",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/profile.jpg"],
   },
   robots: {
     index: true,
@@ -76,15 +70,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "google-site-verification-code",
-    yandex: "yandex-verification-code",
-  },
+  // Add your verification codes when you have them:
+  // verification: {
+  //   google: "your-google-verification-code",
+  // },
 };
 
 // Viewport configuration
 export const viewport: Viewport = {
-  themeColor: "#6A5ACD",
+  themeColor: SEO.themeColor,
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -96,22 +90,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="en" 
-      className={`${montserrat.variable} ${openSans.variable} scroll-smooth`}
+    <html
+      lang="en"
+      className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="bg-background font-body text-text">
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-        <HeroUIProvider>
-          <main>
-            {children}
-          </main>
-          <Footer />
-          <SpeedInsights />
-          <Analytics />
-        </HeroUIProvider>
-      </ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <HeroUIProvider>
+            <main>
+              {children}
+            </main>
+            <Footer />
+            <SpeedInsights />
+            <Analytics />
+          </HeroUIProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,10 +2,11 @@ import { Suspense } from "react";
 import { HomePage } from "@/components/home-page";
 import { Metadata } from "next";
 import Loading from "./loading";
+import { SEO } from "@/data/constants";
 
 export const metadata: Metadata = {
   title: "Home",
-  description: "Portfolio of Haroon, a Full Stack Web Engineer specializing in modern web technologies.",
+  description: SEO.description,
   alternates: {
     canonical: "/",
   },

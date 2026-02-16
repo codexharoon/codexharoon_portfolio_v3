@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button, Input, Textarea } from "@heroui/react";
+import { Icon } from "@iconify/react";
 
 export function ContactForm() {
   const [formData, setFormData] = React.useState({
@@ -18,13 +19,12 @@ export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
     alert("Message sent! (This is a demo)");
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <Input
         label="Your Name"
         name="name"
@@ -33,8 +33,11 @@ export function ContactForm() {
         placeholder="Enter your name"
         variant="bordered"
         isRequired
+        classNames={{
+          inputWrapper: "border-gray-200 dark:border-gray-700 hover:border-primary focus-within:border-primary",
+        }}
       />
-      
+
       <Input
         label="Your Email"
         name="email"
@@ -44,23 +47,29 @@ export function ContactForm() {
         type="email"
         variant="bordered"
         isRequired
+        classNames={{
+          inputWrapper: "border-gray-200 dark:border-gray-700 hover:border-primary focus-within:border-primary",
+        }}
       />
-      
+
       <Textarea
         label="Your Message"
         name="message"
         value={formData.message}
         onChange={handleChange}
-        placeholder="Enter your message"
+        placeholder="Tell me about your app idea..."
         variant="bordered"
         minRows={5}
         isRequired
+        classNames={{
+          inputWrapper: "border-gray-200 dark:border-gray-700 hover:border-primary focus-within:border-primary",
+        }}
       />
-      
-      <Button 
-        type="submit" 
-        color="primary" 
-        className="w-full md:w-auto transition-colors hover:bg-secondary"
+
+      <Button
+        type="submit"
+        className="w-full md:w-auto bg-primary text-white font-medium rounded-full px-8 hover:bg-primary/90"
+        startContent={<Icon icon="lucide:send" width={16} height={16} />}
       >
         Send Message
       </Button>

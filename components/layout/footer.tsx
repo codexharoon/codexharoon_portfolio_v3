@@ -2,99 +2,66 @@
 
 import React from "react";
 import Link from "next/link";
-import { Button, Input } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
-// Define interfaces for type safety
-interface FooterLink {
-  name: string;
-  path: string;
-  external?: boolean; // Make external optional with a default value
-}
-
-interface FooterColumn {
-  title: string;
-  links: FooterLink[];
-}
+import { PERSONAL_INFO, SOCIAL_LINKS, FOOTER_LINKS } from "@/data/constants";
 
 export function Footer() {
-  const [email, setEmail] = React.useState("");
+  const currentYear = new Date().getFullYear();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("Thank you for subscribing! (This is a demo)");
-    setEmail("");
-  };
-
-  const footerLinks: FooterColumn[] = [
+  const footerColumns = [
     {
       title: "Quick Links",
-      links: [
-        { name: "Home", path: "/", external: false },
-        { name: "About", path: "/about-me", external: false },
-        { name: "Services", path: "/services", external: false },
-        { name: "Blog", path: "/blog", external: false },
-        { name: "Contact", path: "/contact-me", external: false }
-      ]
+      links: FOOTER_LINKS.quickLinks,
     },
     {
       title: "Resources",
-      links: [
-        { name: "Case Studies", path: "/case-studies", external: false },
-        { name: "Privacy Policy", path: "/privacy-policy", external: false },
-        { name: "Terms of Service", path: "/terms-of-service", external: false },
-        { name: "FAQ", path: "/faq", external: false }
-      ]
+      links: FOOTER_LINKS.resources,
     },
     {
       title: "Connect",
-      links: [
-        { name: "LinkedIn", path: "https://linkedin.com/in/codexharoon", external: true },
-        { name: "GitHub", path: "https://github.com/codexharoon", external: true },
-        { name: "Twitter", path: "https://twitter.com/thecodexharoon", external: true },
-        { name: "Instagram", path: "https://instagram.com/codexharoon", external: true }
-      ]
-    }
+      links: FOOTER_LINKS.connect,
+    },
   ];
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-gray-950 dark:bg-gray-950 text-white pt-12 sm:pt-16 pb-6 sm:pb-8">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
           {/* Brand Column */}
-          <div className="col-span-1 lg:col-span-1">
+          <div className="col-span-2 sm:col-span-2 lg:col-span-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-heading font-bold text-primary mb-4">Code x Haroon</h2>
-              <p className="text-gray-400 mb-4">
-                Building exceptional digital experiences with modern web technologies.
+              <div className="flex items-center gap-2.5 mb-3 sm:mb-4">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-xs font-mono font-bold tracking-tighter shadow-lg shadow-primary/20">
+                  &lt;/&gt;
+                </span>
+                <h2 className="text-lg sm:text-xl font-heading font-bold flex items-center gap-0.5">
+                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Code</span>
+                  <span className="text-gray-500 font-light mx-0.5">x</span>
+                  <span className="text-white">Haroon</span>
+                </h2>
+              </div>
+              <p className="text-gray-400 mb-4 text-xs sm:text-sm leading-relaxed max-w-sm">
+                Crafting native iOS & macOS applications with Swift. Focused on performance, user experience, and Apple platform best practices.
               </p>
               <div className="flex space-x-4">
-                <a href="https://github.com/codexharoon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Icon icon="lucide:github" width={20} height={20} />
                 </a>
-                <a href="https://linkedin.com/in/codexharoon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Icon icon="lucide:linkedin" width={20} height={20} />
-                </a>
-                <a href="https://twitter.com/thecodexharoon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                  <Icon icon="lucide:twitter" width={20} height={20} />
-                </a>
-                <a href="https://instagram.com/codexharoon" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                  <Icon icon="lucide:instagram" width={20} height={20} />
                 </a>
               </div>
             </motion.div>
           </div>
 
           {/* Link Columns */}
-          {footerLinks.map((column, index) => (
+          {footerColumns.map((column, index) => (
             <div key={index} className="col-span-1">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -102,23 +69,23 @@ export function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <h3 className="text-lg font-medium mb-4">{column.title}</h3>
-                <ul className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-semibold mb-3 sm:mb-4 uppercase tracking-wider text-gray-300">{column.title}</h3>
+                <ul className="space-y-1.5 sm:space-y-2">
                   {column.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
                       {link?.external ? (
-                        <a 
-                          href={link.path} 
-                          target="_blank" 
+                        <a
+                          href={link.path}
+                          target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-primary transition-colors"
+                          className="text-gray-400 hover:text-primary transition-colors text-xs sm:text-sm"
                         >
                           {link.name}
                         </a>
                       ) : (
-                        <Link 
+                        <Link
                           href={link.path}
-                          className="text-gray-400 hover:text-primary transition-colors"
+                          className="text-gray-400 hover:text-primary transition-colors text-xs sm:text-sm"
                         >
                           {link.name}
                         </Link>
@@ -131,40 +98,10 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Newsletter */}
-        <motion.div
-          className="border-t border-gray-800 pt-8 mb-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <div className="max-w-md mx-auto text-center">
-            <h3 className="text-lg font-medium mb-2">Subscribe to my newsletter</h3>
-            <p className="text-gray-400 mb-4">Get the latest updates on web development and design.</p>
-            <form onSubmit={handleSubmit} className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-gray-800 text-white"
-                required
-              />
-              <Button type="submit" color="primary">
-                Subscribe
-              </Button>
-            </form>
-          </div>
-        </motion.div>
-
         {/* Copyright */}
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-sm text-gray-400">
-            © {currentYear} Code x Haroon. All rights reserved.
-          </p>
-          <p className="text-xs text-gray-500 mt-2">
-            Designed and built with <span className="text-red-500">♥</span> By codexharoon.
+        <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center">
+          <p className="text-xs sm:text-sm text-gray-400">
+            © {currentYear} {PERSONAL_INFO.brandName}. All rights reserved.
           </p>
         </div>
       </div>

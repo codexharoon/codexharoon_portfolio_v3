@@ -5,34 +5,18 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Haroon - Full Stack Web Engineer",
+    name: "Haroon — iOS & macOS App Developer",
     short_name: "Code x Haroon",
-    description: "Portfolio of Haroon, a Full Stack Web Engineer specializing in modern web technologies.",
+    description: "Portfolio of Muhammad Haroon, an iOS & macOS App Developer specializing in Swift, UIKit, SwiftUI, and AppKit.",
     start_url: "/",
     display: "standalone",
-    background_color: "#F0F4FF",
-    theme_color: "#6A5ACD",
+    background_color: "#F5F5F7",
+    theme_color: "#007AFF",
     icons: [
       {
         src: "/favicon.ico",
         sizes: "any",
         type: "image/x-icon",
-      },
-      {
-        src: "/icon-192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        src: "/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-      {
-        src: "/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
       },
     ],
   };

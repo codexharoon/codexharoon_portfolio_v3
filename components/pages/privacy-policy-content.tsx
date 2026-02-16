@@ -4,103 +4,168 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { PERSONAL_INFO } from "@/data/constants";
 
 export function PrivacyPolicyContent() {
+  const lastUpdated = "February 16, 2026";
+
   return (
-    <div className="min-h-screen pt-20 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+    <div className="min-h-screen bg-background pt-24 pb-16">
+      <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+        {/* Back link */}
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="mb-8"
+        >
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors"
           >
-            <Link href="/" className="inline-flex items-center text-primary mb-8">
-              <Icon icon="lucide:arrow-left" className="mr-2" />
-              Back to Home
-            </Link>
-            
-            <h1 className="text-4xl font-heading font-bold mb-6">Privacy Policy</h1>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">Last updated: {new Date().toLocaleDateString()}</p>
-            
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <h2>Introduction</h2>
-              <p>
-                This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a contact request through https://codexharoon.com (the "Site").
-              </p>
-              
-              <h2>Personal Information We Collect</h2>
-              <p>
-                When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device.
-              </p>
-              <p>
-                Additionally, as you browse the Site, we collect information about the individual web pages that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as "Device Information."
-              </p>
-              
-              <h3>We collect Device Information using the following technologies:</h3>
-              <ul>
-                <li>
-                  "Cookies" are data files that are placed on your device or computer and often include an anonymous unique identifier. For more information about cookies, and how to disable cookies, visit <a href="http://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">http://www.allaboutcookies.org</a>.
-                </li>
-                <li>
-                  "Log files" track actions occurring on the Site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.
-                </li>
-              </ul>
-              
-              <h2>Contact Forms</h2>
-              <p>
-                When you make a contact request through the Site, we collect certain information from you, including your name, email address, and the contents of your message. We refer to this information as "Contact Information."
-              </p>
-              <p>
-                When we talk about "Personal Information" in this Privacy Policy, we are talking both about Device Information and Contact Information.
-              </p>
-              
-              <h2>How We Use Your Personal Information</h2>
-              <p>
-                We use the Contact Information that we collect generally to respond to your inquiries and to communicate with you when necessary. Additionally, we use this information to:
-              </p>
-              <ul>
-                <li>Communicate with you;</li>
-                <li>Screen for potential risk or fraud; and</li>
-                <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our products or services.</li>
-              </ul>
-              <p>
-                We use the Device Information that we collect to help us screen for potential risk and fraud (in particular, your IP address), and more generally to improve and optimize our Site (for example, by generating analytics about how our visitors browse and interact with the Site).
-              </p>
-              
-              <h2>Sharing Your Personal Information</h2>
-              <p>
-                We do not share your Personal Information with third parties except as described in this Privacy Policy.
-              </p>
-              <p>
-                We may share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.
-              </p>
-              
-              <h2>Your Rights</h2>
-              <p>
-                If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us.
-              </p>
-              <p>
-                Additionally, if you are a European resident we note that we are processing your information in order to fulfill contracts we might have with you, or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information will be transferred outside of Europe, including to the United States.
-              </p>
-              
-              <h2>Data Retention</h2>
-              <p>
-                When you submit a contact form through the Site, we will maintain your Contact Information for our records unless and until you ask us to delete this information.
-              </p>
-              
-              <h2>Changes</h2>
-              <p>
-                We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.
-              </p>
-              
-              <h2>Contact Us</h2>
-              <p>
-                For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at hello@codexharoon.com.
-              </p>
+            <Icon icon="lucide:arrow-left" width={16} height={16} />
+            Back to Home
+          </Link>
+        </motion.div>
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-12"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+            Privacy Policy
+          </h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Last updated: {lastUpdated}
+          </p>
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="prose prose-gray dark:prose-invert max-w-none space-y-8"
+        >
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Introduction</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              Welcome to {PERSONAL_INFO.brandName} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). This Privacy Policy explains how we collect,
+              use, and protect your personal information when you visit our portfolio website at{" "}
+              <a href={PERSONAL_INFO.website} className="text-primary hover:underline">{PERSONAL_INFO.website.replace("https://", "")}</a>.
+              Your privacy is important to us, and we are committed to transparency about our data practices.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Information We Collect</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+              We collect minimal information necessary to provide a great user experience:
+            </p>
+            <div className="space-y-3">
+              <div className="glass-card p-4">
+                <h3 className="font-semibold text-sm mb-1.5">Contact Form Data</h3>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  When you submit our contact form, we collect your name, email address, and message content.
+                  This information is used solely to respond to your inquiry.
+                </p>
+              </div>
+              <div className="glass-card p-4">
+                <h3 className="font-semibold text-sm mb-1.5">Analytics Data</h3>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  We use Vercel Analytics and Speed Insights to collect anonymized usage data including page views,
+                  referral sources, device type, and performance metrics. This data does not identify you personally.
+                </p>
+              </div>
+              <div className="glass-card p-4">
+                <h3 className="font-semibold text-sm mb-1.5">Cookies & Local Storage</h3>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Our site uses local storage to remember your theme preference (light/dark mode).
+                  We do not use advertising or tracking cookies.
+                </p>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">How We Use Your Information</h2>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:check-circle" className="text-accent mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Respond to inquiries submitted through the contact form</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:check-circle" className="text-accent mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Analyze website performance and improve user experience</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:check-circle" className="text-accent mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Remember your display preferences (theme settings)</span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Data Sharing</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              We do not sell, trade, or rent your personal information to third parties.
+              Anonymized analytics data is processed by Vercel in accordance with their{" "}
+              <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                privacy policy
+              </a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Data Security</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              We implement industry-standard security measures to protect your data. Our website is served
+              over HTTPS, and we follow security best practices in our development process. However, no method
+              of electronic transmission is 100% secure.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Your Rights</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+              You have the right to:
+            </p>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:shield" className="text-primary mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Request access to any personal data we hold about you</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:shield" className="text-primary mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Request deletion of your personal data</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Icon icon="lucide:shield" className="text-primary mt-0.5 flex-shrink-0" width={16} height={16} />
+                <span>Opt out of analytics tracking by using browser privacy settings</span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl sm:text-2xl font-heading font-bold mb-3">Contact Us</h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              If you have questions about this Privacy Policy or wish to exercise your data rights,
+              please contact us at{" "}
+              <a href={`mailto:${PERSONAL_INFO.email}`} className="text-primary hover:underline">
+                {PERSONAL_INFO.email}
+              </a>.
+            </p>
+          </section>
+
+          <section className="border-t border-gray-200 dark:border-gray-800 pt-6">
+            <p className="text-xs text-gray-400">
+              This privacy policy may be updated periodically. We encourage you to review this page
+              for the latest information on our privacy practices.
+            </p>
+          </section>
+        </motion.div>
       </div>
     </div>
   );

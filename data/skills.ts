@@ -3,47 +3,62 @@ import { Skill } from "@/types/skill";
 export const skills: Skill[] = [
   {
     id: "1",
-    name: "React",
-    icon: "logos:react"
+    name: "Swift",
+    icon: "logos:swift",
   },
   {
     id: "2",
-    name: "JavaScript",
-    icon: "logos:javascript"
+    name: "UIKit",
+    icon: "devicon:apple",
   },
   {
     id: "3",
-    name: "TypeScript",
-    icon: "logos:typescript-icon"
+    name: "SwiftUI",
+    icon: "devicon:swift",
   },
   {
     id: "4",
-    name: "Node.js",
-    icon: "logos:nodejs-icon"
+    name: "AppKit",
+    icon: "devicon:apple",
   },
   {
     id: "5",
-    name: "HTML5",
-    icon: "logos:html-5"
+    name: "Xcode",
+    icon: "devicon:xcode",
   },
   {
     id: "6",
-    name: "CSS3",
-    icon: "logos:css-3"
+    name: "Git",
+    icon: "logos:git-icon",
   },
   {
     id: "7",
-    name: "Tailwind CSS",
-    icon: "logos:tailwindcss-icon"
+    name: "CoreML",
+    icon: "lucide:brain",
   },
   {
     id: "8",
-    name: "MongoDB",
-    icon: "logos:mongodb-icon"
+    name: "Vision",
+    icon: "lucide:eye",
   },
   {
     id: "9",
+    name: "MapKit",
+    icon: "lucide:map",
+  },
+  {
+    id: "10",
     name: "Firebase",
-    icon: "logos:firebase"
-  }
+    icon: "logos:firebase",
+  },
+  {
+    id: "11",
+    name: "PencilKit",
+    icon: "lucide:pen-tool",
+  },
+  {
+    id: "12",
+    name: "CoreData",
+    icon: "lucide:database",
+  },
 ];

@@ -3,17 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #F0F4FF;
-  --text: #1A1A1A;
+  --background: #F5F5F7;
+  --text: #1D1D1F;
   --card: #FFFFFF;
-  --border: #E2E8F0;
+  --border: #D2D2D7;
+  --apple-blue: #007AFF;
+  --apple-blue-dark: #0A84FF;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .dark {
-  --background: #0F172A;
-  --text: #F8FAFC;
-  --card: #1E293B;
-  --border: #334155;
+  --background: #000000;
+  --text: #F5F5F7;
+  --card: #1C1C1E;
+  --border: #38383A;
+  --apple-blue: #0A84FF;
+  --apple-blue-dark: #007AFF;
+  --glass-bg: rgba(28, 28, 30, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
 }
 
 html {
@@ -25,9 +35,179 @@ body {
   background-color: var(--background);
 }
 
-/* Custom Scrollbar */
+/* ─── Liquid Glass Effect ──────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 122, 255, 0.12);
+}
+
+.dark .glass-card:hover {
+  box-shadow: 0 16px 48px rgba(10, 132, 255, 0.15);
+}
+
+.glass-navbar {
+  background: rgba(245, 245, 247, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .glass-navbar {
+  background: rgba(0, 0, 0, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-badge {
+  background: rgba(0, 122, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 122, 255, 0.2);
+  border-radius: 100px;
+}
+
+.dark .glass-badge {
+  background: rgba(10, 132, 255, 0.15);
+  border: 1px solid rgba(10, 132, 255, 0.25);
+}
+
+/* ─── Swift Code Block ─────────────────────── */
+.code-block {
+  background: #1E1E1E;
+  border-radius: 12px;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.code-block-header {
+  background: #2D2D2D;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-dot-red {
+  background: #FF5F57;
+}
+
+.code-dot-yellow {
+  background: #FFBD2E;
+}
+
+.code-dot-green {
+  background: #28C840;
+}
+
+.swift-keyword {
+  color: #FC5FA3;
+}
+
+.swift-type {
+  color: #5DD8FF;
+}
+
+.swift-string {
+  color: #FC6A5D;
+}
+
+.swift-comment {
+  color: #6C7986;
+}
+
+.swift-func {
+  color: #A167E6;
+}
+
+.swift-property {
+  color: #D0D0D0;
+}
+
+.swift-number {
+  color: #D0BF69;
+}
+
+/* ─── Apple-Style Gradient Backgrounds ─────── */
+.gradient-hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 122, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(88, 86, 214, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(52, 199, 89, 0.04) 0%, transparent 50%);
+}
+
+.dark .gradient-hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(10, 132, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(94, 92, 230, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(48, 209, 88, 0.06) 0%, transparent 50%);
+}
+
+/* ─── Floating Orbs ────────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(6px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ─── Custom Scrollbar ─────────────────────── */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,33 +215,60 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6A5ACD;
-  border-radius: 5px;
+  background: #007AFF;
+  border-radius: 4px;
   border: 2px solid var(--background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5849b8;
+  background: #0056CC;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #6A5ACD var(--background);
+  scrollbar-color: #007AFF var(--background);
 }
 
-/* Add padding to sections to account for fixed navbar */
-section {
-  padding-top: 64px; /* Height of navbar */
+/* ─── Navbar offset for scroll anchors ─────── */
+section[id] {
+  scroll-margin-top: 72px;
 }
 
-/* Improve accessibility */
+/* ─── Tech Pill Badge ──────────────────────── */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0, 122, 255, 0.08);
+  color: #007AFF;
+  border: 1px solid rgba(0, 122, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.dark .tech-pill {
+  background: rgba(10, 132, 255, 0.12);
+  color: #0A84FF;
+  border: 1px solid rgba(10, 132, 255, 0.2);
+}
+
+.tech-pill:hover {
+  background: rgba(0, 122, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ─── Accessibility ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -69,8 +276,33 @@ section {
   }
 }
 
-/* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid #6A5ACD;
-  outline-offset: 2px;
+/* Remove default HeroUI / browser focus rings on buttons & toggles */
+button:focus-visible,
+[role="button"]:focus-visible,
+[data-slot="trigger"]:focus-visible,
+[aria-label="Theme switcher"]:focus-visible,
+[aria-label="Open menu"]:focus-visible,
+[aria-label="Close menu"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* ─── App Icon Style ───────────────────────── */
+.app-icon {
+  border-radius: 22.37%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Device Frame ─────────────────────────── */
+.device-frame-ios {
+  border-radius: 32px;
+  border: 8px solid #1D1D1F;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+}
+
+.dark .device-frame-ios {
+  border-color: #38383A;
 }
