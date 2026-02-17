@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { SEO, PERSONAL_INFO } from "@/data/constants";
+import { SEO, PERSONAL_INFO, SOCIAL_LINKS } from "@/data/constants";
 import "./globals.css";
 
 // Inter — closest web font to SF Pro
@@ -96,6 +96,37 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-background font-body text-text">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  name: PERSONAL_INFO.name,
+                  jobTitle: PERSONAL_INFO.title,
+                  url: PERSONAL_INFO.website,
+                  sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
+                  image: `${PERSONAL_INFO.website}/profile.jpg`,
+                  description: SEO.description,
+                  email: PERSONAL_INFO.email,
+                  telephone: PERSONAL_INFO.phone,
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: PERSONAL_INFO.location,
+                  },
+                  knowsAbout: SEO.keywords,
+                },
+                {
+                  "@type": "WebSite",
+                  name: PERSONAL_INFO.brandName,
+                  url: PERSONAL_INFO.website,
+                },
+              ],
+            }),
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <HeroUIProvider>
             <main>

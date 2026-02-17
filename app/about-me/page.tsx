@@ -3,14 +3,14 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Learn more about Haroon, a passionate Full Stack Web Engineer with over 5 years of experience building exceptional web applications.",
-  keywords: ["full stack developer", "web engineer", "react developer", "node.js developer", "javascript expert"],
+  description: "Learn more about Haroon, a passionate iOS & macOS App Developer with expertise in Swift, UIKit, and SwiftUI for building exceptional Apple platform applications.",
+  keywords: ["iOS developer", "macOS engineer", "Swift expert", "mobile app developer", "Apple platform specialist"],
   alternates: {
     canonical: "/about-me",
   },
   openGraph: {
-    title: "About Me | Haroon - Full Stack Web Engineer",
-    description: "Learn more about Haroon, a passionate Full Stack Web Engineer with over 5 years of experience building exceptional web applications.",
+    title: "About Me | Haroon - iOS & macOS App Developer",
+    description: "Learn more about Haroon, a passionate iOS & macOS App Developer with expertise in Swift, UIKit, and SwiftUI.",
     url: "https://codexharoon.com/about-me",
   },
 };
