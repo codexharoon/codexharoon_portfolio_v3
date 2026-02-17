@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { HeroUIProvider } from "@heroui/react";
 import { Footer } from "@/components/layout/footer";
+import { ScrollToTop } from "@/components/navigation/scroll-to-top";
 import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -133,6 +134,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ScrollToTop />
             <SpeedInsights />
             <Analytics />
           </HeroUIProvider>

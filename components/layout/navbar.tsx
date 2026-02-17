@@ -11,6 +11,7 @@ import {
   NavbarMenu,
   NavbarMenuItem
 } from "@heroui/react";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeSwitcher } from "../theme/theme-switcher";
 import { Icon } from "@iconify/react";
 import { NAV_SECTIONS, PERSONAL_INFO } from "@/data/constants";
@@ -21,13 +22,19 @@ interface NavbarProps {
 
 export function Navbar({ activeSection }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
 
   const isActive = (section: string) => {
     return activeSection === section;
   };
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (sectionId: string) => {
     setIsMenuOpen(false);
+    if (!isHome) {
+      router.push(`/#${sectionId}`);
+    }
   };
 
   return (
@@ -43,13 +50,16 @@ export function Navbar({ activeSection }: NavbarProps) {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link
-            to="home"
-            spy={true}
-            smooth={true}
-            duration={800}
+          <div
             className="font-heading font-bold cursor-pointer flex items-center gap-2.5"
-            onClick={handleLinkClick}
+            onClick={() => {
+              if (isHome) {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                router.push("/");
+              }
+              setIsMenuOpen(false);
+            }}
           >
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary text-white text-xs font-mono font-bold tracking-tighter shadow-lg shadow-primary/20">
               &lt;/&gt;
@@ -59,22 +69,23 @@ export function Navbar({ activeSection }: NavbarProps) {
               <span className="text-gray-400 dark:text-gray-500 font-light mx-0.5">x</span>
               <span className="text-text">Haroon</span>
             </span>
-          </Link>
+          </div>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
         {NAV_SECTIONS.map((section) => (
-          <NavbarItem key={section.id} isActive={isActive(section.id)}>
+          <NavbarItem key={section.id} isActive={isHome && isActive(section.id)}>
             <Link
               to={section.id}
               spy={true}
               smooth={true}
               duration={800}
-              className={`text-sm transition-colors duration-200 cursor-pointer ${isActive(section.id)
+              className={`text-sm transition-colors duration-200 cursor-pointer ${isHome && isActive(section.id)
                 ? "text-primary font-semibold"
                 : "text-gray-500 dark:text-gray-400 hover:text-primary"
                 }`}
+              onClick={() => handleLinkClick(section.id)}
             >
               {section.label}
             </Link>
@@ -97,11 +108,11 @@ export function Navbar({ activeSection }: NavbarProps) {
               spy={true}
               smooth={true}
               duration={800}
-              className={`w-full block py-2 text-sm ${isActive(section.id)
+              className={`w-full block py-2 text-sm ${isHome && isActive(section.id)
                 ? "text-primary font-semibold"
                 : "text-gray-500 hover:text-primary"
                 }`}
-              onClick={handleLinkClick}
+              onClick={() => handleLinkClick(section.id)}
             >
               {section.label}
             </Link>
