@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Button } from "@heroui/react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -11,9 +10,9 @@ function SwiftCodeBlock() {
   return (
     <motion.div
       className="code-block w-full max-w-md mx-auto"
-      initial={{ opacity: 0, y: 20, rotateX: 5 }}
+      initial={{ opacity: 0, y: 10, rotateX: 5 }}
       animate={{ opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ duration: 1, delay: 0.4 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
     >
       <div className="code-block-header">
         <div className="code-dot code-dot-red"></div>
@@ -91,12 +90,12 @@ export function HeroSection({ reference }: { reference: any }) {
     >
       {/* Floating orbs — hidden on very small screens to avoid overflow */}
       <motion.div
-        className="absolute top-20 right-10 sm:right-20 w-48 sm:w-72 h-48 sm:h-72 rounded-full bg-primary opacity-[0.04] blur-3xl"
+        className="absolute top-20 right-10 sm:right-20 w-48 sm:w-72 h-48 sm:h-72 rounded-full bg-primary opacity-[0.04] blur-3xl pointer-events-none"
         animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-20 left-10 sm:left-20 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-secondary opacity-[0.04] blur-3xl"
+        className="absolute bottom-20 left-10 sm:left-20 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-secondary opacity-[0.04] blur-3xl pointer-events-none"
         animate={{ y: [20, -20, 20], x: [10, -10, 10] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -138,16 +137,16 @@ export function HeroSection({ reference }: { reference: any }) {
       <div className="container xl:max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between">
         <motion.div
           className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left"
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           {/* Glass greeting badge */}
           <motion.div
             className="glass-badge inline-flex items-center px-4 sm:px-5 py-2.5 sm:py-3 mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             <span className="text-3xl sm:text-4xl mr-3 sm:mr-4">👋</span>
             <div className="flex flex-col">
@@ -170,39 +169,36 @@ export function HeroSection({ reference }: { reference: any }) {
             {PROFILE.short}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-start justify-center items-center">
-            <Button
-              as={Link}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-start justify-center items-center relative z-10">
+            <Link
               to="work"
               spy={true}
               smooth={true}
               duration={800}
-              size="lg"
-              className="font-medium cursor-pointer bg-primary text-white hover:bg-primary/90 rounded-full px-6 sm:px-8 w-full sm:w-auto"
+              offset={-100}
+              className="group font-medium cursor-pointer bg-primary text-white hover:bg-primary/90 rounded-full px-6 sm:px-8 w-full sm:w-auto h-12 flex items-center justify-center transition-colors border-2 border-transparent"
             >
-              <Icon icon="lucide:smartphone" width={18} height={18} className="mr-1" />
+              <Icon icon="lucide:smartphone" width={18} height={18} className="mr-2" />
               View My Apps
-            </Button>
-            <Button
-              as={Link}
+            </Link>
+            <Link
               to="contact"
               spy={true}
               smooth={true}
               duration={800}
-              variant="bordered"
-              size="lg"
-              className="font-medium cursor-pointer border-primary text-primary hover:bg-primary/5 rounded-full px-6 sm:px-8 w-full sm:w-auto"
+              offset={-100}
+              className="font-medium cursor-pointer border-2 border-primary text-primary hover:bg-primary/5 rounded-full px-6 sm:px-8 w-full sm:w-auto h-12 flex items-center justify-center transition-colors bg-transparent"
             >
               Get in Touch
-            </Button>
+            </Link>
           </div>
         </motion.div>
 
         <motion.div
           className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0"
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           <SwiftCodeBlock />
         </motion.div>

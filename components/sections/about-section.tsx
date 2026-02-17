@@ -17,10 +17,10 @@ export function AboutSection({ reference }: { reference: any }) {
         <div className="max-w-5xl mx-auto">
           <motion.div
             className="text-center mb-10 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.4 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 sm:mb-4">
               About Me
@@ -34,10 +34,10 @@ export function AboutSection({ reference }: { reference: any }) {
             {/* Left — Avatar & Stats */}
             <motion.div
               className="w-full md:w-2/5"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               {/* Gradient Avatar */}
               <div className="relative mb-8">
@@ -76,7 +76,7 @@ export function AboutSection({ reference }: { reference: any }) {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
                   >
                     <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Icon icon={stat.icon} className="text-primary" width={18} height={18} />
@@ -93,10 +93,10 @@ export function AboutSection({ reference }: { reference: any }) {
             {/* Right — Bio & Details */}
             <motion.div
               className="w-full md:w-3/5"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-heading font-bold mb-3 sm:mb-4">
                 {PERSONAL_INFO.subtitle} <span className="text-primary">—</span> {PERSONAL_INFO.title}

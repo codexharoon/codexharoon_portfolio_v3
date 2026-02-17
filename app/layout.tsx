@@ -96,7 +96,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-background font-body text-text">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <HeroUIProvider>
             <main>
               {children}

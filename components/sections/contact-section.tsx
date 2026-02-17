@@ -17,10 +17,10 @@ export function ContactSection({ reference }: { reference: any }) {
         <div className="max-w-5xl mx-auto">
           <motion.div
             className="text-center mb-10 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.4 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-3 sm:mb-4">
               Let&apos;s Build Something Together
@@ -32,10 +32,10 @@ export function ContactSection({ reference }: { reference: any }) {
 
           <motion.div
             className="flex flex-col md:flex-row gap-6 sm:gap-8"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             <div className="w-full md:w-1/3">
               <ContactInfo />
