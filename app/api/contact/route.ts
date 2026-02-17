@@ -1,54 +1,61 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-// Server-side form validation
-const validateEmail = (email: string): boolean => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
-
-export async function POST(request: NextRequest) {
+export async function POST(req: Request) {
   try {
-    // Parse the request body
-    const body = await request.json();
-    const { name, email, message, subject } = body;
+    const { name, email, message } = await req.json();
 
-    // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Name, email, and message are required" },
+        { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    // Validate email format
-    if (!validateEmail(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
-    }
-
-    // In a real application, you would send this data to your email service
-    // For example, using Nodemailer, SendGrid, or another email API
-    
-    // For demonstration purposes, we'll just log the data and return a success response
-    console.log("Contact form submission:", {
-      name,
-      email,
-      subject: subject || "Contact Form Submission",
-      message,
-      timestamp: new Date().toISOString(),
+    // Configure Nodemailer transporter with Gmail
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
     });
 
-    // Return success response
-    return NextResponse.json(
-      { success: true, message: "Message sent successfully" },
-      { status: 200 }
-    );
+    const mailOptions = {
+      from: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER_REDIRECT,
+      replyTo: email,
+      subject: `New Portfolio Message from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+          <h2 style="color: #007AFF;">New Message from Portfolio</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
+          <p><strong>Message:</strong></p>
+          <p style="white-space: pre-wrap; background-color: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>
+        </div>
+      `,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      return NextResponse.json(
+        { message: 'Email sent successfully' },
+        { status: 200 }
+      );
+    } catch (error) {
+      console.error('Error sending email:', error);
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      );
+    }
+
   } catch (error) {
-    console.error("Error processing contact form:", error);
+    console.error('Error processing request:', error);
     return NextResponse.json(
-      { error: "Failed to process your request" },
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }
