@@ -5,7 +5,7 @@ import Loading from "./loading";
 import { SEO } from "@/data/constants";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Code x Haroon",
   description: SEO.description,
   alternates: {
     canonical: "/",

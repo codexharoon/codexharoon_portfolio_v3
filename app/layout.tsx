@@ -34,9 +34,6 @@ export const metadata: Metadata = {
     address: false,
   },
   metadataBase: new URL(PERSONAL_INFO.website),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: SEO.title,
     description: SEO.description,
