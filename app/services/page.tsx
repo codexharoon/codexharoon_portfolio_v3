@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services | Haroon - iOS & macOS App Developer",
+    title: "Services",
     description: "Explore the app development services offered by Haroon, including native iOS & macOS apps, Swift migration, and App Store deployment.",
     url: "https://codexharoon.com/services",
   },

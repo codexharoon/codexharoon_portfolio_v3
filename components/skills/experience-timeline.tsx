@@ -32,7 +32,9 @@ export function ExperienceTimeline() {
                 <span className="text-[10px] sm:text-xs font-semibold bg-primary text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full">
                   {experience.year}
                 </span>
-                <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">— Present</span>
+                <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400">
+                  {experience.current ? "• Present" : "• Ended"}
+                </span>
               </div>
               <h3 className="text-base sm:text-lg font-bold mb-1">{experience.title}</h3>
               <p className="text-primary text-xs sm:text-sm font-medium mb-2 sm:mb-3">{experience.company}</p>

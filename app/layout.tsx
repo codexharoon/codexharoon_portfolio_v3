@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/profile.jpg",
         width: 1200,
         height: 630,
-        alt: `${PERSONAL_INFO.name} — ${PERSONAL_INFO.title}`,
+        alt: `${PERSONAL_INFO.name} • ${PERSONAL_INFO.title}`,
       },
     ],
   },

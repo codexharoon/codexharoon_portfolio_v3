@@ -5,4 +5,5 @@ export interface Experience {
   company: string;
   description: string;
   highlights: string[];
+  current: boolean;
 }

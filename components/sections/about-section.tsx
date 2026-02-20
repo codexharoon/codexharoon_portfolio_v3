@@ -98,9 +98,14 @@ export function AboutSection({ reference }: { reference: any }) {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <h3 className="text-xl sm:text-2xl font-heading font-bold mb-3 sm:mb-4">
-                {PERSONAL_INFO.subtitle} <span className="text-primary">—</span> {PERSONAL_INFO.title}
-              </h3>
+              <div className="mb-4 sm:mb-5">
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground mb-1">
+                  {PERSONAL_INFO.title}
+                </h3>
+                <h4 className="text-sm sm:text-base font-medium text-primary tracking-wide">
+                  {PERSONAL_INFO.subtitle}
+                </h4>
+              </div>
 
               <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-3 sm:mb-4 leading-relaxed">
                 {PROFILE.full}

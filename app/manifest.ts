@@ -5,7 +5,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Haroon — iOS & macOS App Developer",
+    name: "Haroon • iOS & macOS App Developer",
     short_name: "Code x Haroon",
     description: "Portfolio of Muhammad Haroon, an iOS & macOS App Developer specializing in Swift, UIKit, SwiftUI, and AppKit.",
     start_url: "/",

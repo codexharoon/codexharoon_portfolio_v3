@@ -14,5 +14,6 @@ export const experiences: Experience[] = [
       "Built macOS utilities such as a flight tracker and a secure notes app with custom editors and biometric authentication",
       "Collaborated with cross-functional teams while independently delivering assigned features",
     ],
+    current: true,
   },
 ];

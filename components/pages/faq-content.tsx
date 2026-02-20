@@ -9,36 +9,36 @@ import { Icon } from "@iconify/react";
 export function FaqContent() {
   const faqs = [
     {
-      question: "What services do you offer?",
-      answer: "I offer a comprehensive range of web development services including frontend development, backend development, full-stack development, e-commerce solutions, mobile app development, and DevOps engineering. My expertise spans across various technologies like React, Node.js, MongoDB, PostgreSQL, and more."
+      question: "What app and web development services do you offer?",
+      answer: "I offer a comprehensive range of development services across multiple platforms. This includes Native iOS and macOS app development (Swift), Android app development, Cross-Platform App Development, and custom Web Development to build full-scale, responsive applications and landing pages."
     },
     {
-      question: "How much does a website or web application cost?",
-      answer: "The cost of a website or web application varies depending on several factors such as complexity, features, design requirements, and timeline. I provide custom quotes based on your specific needs. Please contact me with your project details for a personalized estimate."
+      question: "How much does a custom app or website cost?",
+      answer: "The cost varies depending on the project's complexity, required platforms, necessary backend integrations, and design specifics. After an initial consultation to understand your goals, I will provide a custom, detailed proposal with timeline and cost estimates."
     },
     {
-      question: "How long does it take to build a website or web application?",
-      answer: "The timeline for building a website or web application depends on its complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take several months. I'll provide you with a realistic timeline after understanding your project requirements."
+      question: "How long does it typically take to build an app or a website?",
+      answer: "A straightforward website or basic utility app might take 2-4 weeks. A complex, cross-platform mobile application with custom animations, cloud database syncing, and user authentication can take several months. I'll provide a realistic timeline upon reviewing your requirements."
     },
     {
-      question: "Do you provide ongoing maintenance and support?",
-      answer: "Yes, I offer ongoing maintenance and support services to ensure your website or application continues to run smoothly after launch. This includes regular updates, security patches, performance optimization, and technical support."
+      question: "Do you help with App Store and Google Play deployment?",
+      answer: "Yes! Deploying to the Apple App Store and Google Play Store can be complex. I manage the entire submission process, including configuring developer accounts, setting up test builds, and ensuring the app complies with both Apple's and Google's review guidelines."
     },
     {
-      question: "What is your development process?",
-      answer: "My development process typically includes the following phases: requirement gathering, planning, design, development, testing, deployment, and maintenance. I follow an agile methodology that allows for flexibility and iterative improvements throughout the development lifecycle."
+      question: "Do you provide ongoing maintenance and support after launch?",
+      answer: "Absolutely. I offer ongoing support to ensure your application stays compatible with new OS updates across iOS and Android, maintain your website's performance, fix any bugs, and implement new features as your project grows."
     },
     {
-      question: "Do you work with clients remotely?",
-      answer: "Yes, I work with clients from all over the world remotely. I use various communication and project management tools to ensure smooth collaboration regardless of geographical location."
+      question: "What is your typical development process?",
+      answer: "My workflow generally follows this structure: First, requirement gathering and project planning. Next, UI/UX prototyping and architecture design. Then, the core development phase with regular updates and beta builds for your review. Finally, comprehensive testing and production deployment."
     },
     {
-      question: "Can you help with an existing website or application?",
-      answer: "Absolutely! I can help improve, update, or fix issues with your existing website or application. This includes performance optimization, adding new features, redesigning the UI/UX, or migrating to a different technology stack."
+      question: "Can you help update an existing application or website?",
+      answer: "Yes, I regularly work on existing codebases. Whether you need to fix legacy bugs, improve application performance, remodel your website's UI/UX, or add new modern features, I can seamlessly integrate with your existing project."
     },
     {
       question: "How do we get started working together?",
-      answer: "To get started, simply reach out to me through the contact form on this website. We'll schedule an initial consultation to discuss your project requirements, goals, and expectations. Based on our discussion, I'll provide you with a proposal including scope, timeline, and cost estimates."
+      answer: "You can easily reach out to me via the contact form on this website. We'll set up an initial consultation to discuss your project idea, goals, and see if we are a perfect fit for a collaboration!"
     }
   ];
 
@@ -55,14 +55,14 @@ export function FaqContent() {
               <Icon icon="lucide:arrow-left" className="mr-2" />
               Back to Home
             </Link>
-            
+
             <div className="text-center mb-12">
               <h1 className="text-4xl font-heading font-bold mb-4">Frequently Asked Questions</h1>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Find answers to common questions about my services, process, and working relationship.
               </p>
             </div>
-            
+
             <Accordion variant="splitted" className="mb-12">
               {faqs.map((faq, index) => (
                 <AccordionItem
@@ -75,7 +75,7 @@ export function FaqContent() {
                 </AccordionItem>
               ))}
             </Accordion>
-            
+
             <div className="bg-primary bg-opacity-5 dark:bg-primary dark:bg-opacity-10 rounded-xl p-8 text-center">
               <h2 className="text-2xl font-medium mb-4">Still Have Questions?</h2>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">

@@ -2,10 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody, Input, Textarea, Button } from "@heroui/react";
+import { Card, CardBody, Input, Textarea, Button, Tooltip } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { toast } from "@/components/ui/toast";
+
+import { PERSONAL_INFO, SOCIAL_LINKS } from "@/data/constants";
 
 export function ContactMePage() {
   const [formData, setFormData] = React.useState({
@@ -24,7 +26,7 @@ export function ContactMePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -33,9 +35,9 @@ export function ContactMePage() {
         },
         body: JSON.stringify(formData),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
         toast({
           title: "Success!",
@@ -66,23 +68,23 @@ export function ContactMePage() {
     {
       icon: "lucide:mail",
       title: "Email",
-      value: "hello@codexharoon.com",
-      link: "mailto:hello@codexharoon.com",
+      value: PERSONAL_INFO.email,
+      link: `mailto:${PERSONAL_INFO.email}`,
       color: "bg-pink-100",
       iconColor: "text-pink-500"
     },
     {
       icon: "lucide:phone",
       title: "Phone",
-      value: "+1 (234) 567-890",
-      link: "tel:+1234567890",
+      value: PERSONAL_INFO.phone,
+      link: `tel:${PERSONAL_INFO.phone.replace(/[^0-9+]/g, '')}`,
       color: "bg-blue-100",
       iconColor: "text-blue-500"
     },
     {
       icon: "lucide:map-pin",
       title: "Location",
-      value: "New York, NY, USA",
+      value: PERSONAL_INFO.location,
       link: null,
       color: "bg-green-100",
       iconColor: "text-green-500"
@@ -102,14 +104,14 @@ export function ContactMePage() {
               <Icon icon="lucide:arrow-left" className="mr-2" />
               Back to Home
             </Link>
-            
+
             <div className="text-center mb-12">
               <h1 className="text-4xl font-heading font-bold mb-4">Get In Touch</h1>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Have a project in mind or just want to say hello? Feel free to reach out!
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -136,7 +138,7 @@ export function ContactMePage() {
                 </motion.div>
               ))}
             </div>
-            
+
             <Card>
               <CardBody className="p-8">
                 <h2 className="text-2xl font-medium mb-6">Send Me a Message</h2>
@@ -151,7 +153,7 @@ export function ContactMePage() {
                       variant="bordered"
                       isRequired
                     />
-                    
+
                     <Input
                       label="Your Email"
                       name="email"
@@ -163,7 +165,7 @@ export function ContactMePage() {
                       isRequired
                     />
                   </div>
-                  
+
                   <Input
                     label="Subject"
                     name="subject"
@@ -173,7 +175,7 @@ export function ContactMePage() {
                     variant="bordered"
                     isRequired
                   />
-                  
+
                   <Textarea
                     label="Your Message"
                     name="message"
@@ -184,11 +186,11 @@ export function ContactMePage() {
                     minRows={5}
                     isRequired
                   />
-                  
+
                   <div className="flex justify-end">
-                    <Button 
-                      type="submit" 
-                      color="primary" 
+                    <Button
+                      type="submit"
+                      color="primary"
                       size="lg"
                       endContent={<Icon icon="lucide:send" />}
                       isLoading={isSubmitting}
@@ -200,22 +202,40 @@ export function ContactMePage() {
                 </form>
               </CardBody>
             </Card>
-            
+
             <div className="mt-12">
               <h2 className="text-2xl font-medium mb-6">Find Me On</h2>
               <div className="flex space-x-4">
-                <a href="https://github.com/codexharoon" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-                  <Icon icon="lucide:github" width={24} height={24} />
-                </a>
-                <a href="https://linkedin.com/in/codexharoon" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-                  <Icon icon="lucide:linkedin" width={24} height={24} />
-                </a>
-                <a href="https://twitter.com/thecodexharoon" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-                  <Icon icon="lucide:twitter" width={24} height={24} />
-                </a>
-                <a href="https://instagram.com/codexharoon" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-                  <Icon icon="lucide:instagram" width={24} height={24} />
-                </a>
+                <Tooltip content="GitHub Profile" placement="top" showArrow>
+                  <Button
+                    as="a"
+                    href={SOCIAL_LINKS.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    isIconOnly
+                    size="lg"
+                    radius="full"
+                    className="bg-gray-100 hover:bg-gray-800 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-100 dark:hover:text-black transition-all"
+                    aria-label="GitHub"
+                  >
+                    <Icon icon="lucide:github" width={24} height={24} />
+                  </Button>
+                </Tooltip>
+                <Tooltip content="LinkedIn Profile" placement="top" showArrow>
+                  <Button
+                    as="a"
+                    href={SOCIAL_LINKS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    isIconOnly
+                    size="lg"
+                    radius="full"
+                    className="bg-[#e8f3ff] text-[#0a66c2] hover:bg-[#0a66c2] hover:text-white dark:bg-[#0a66c2]/20 dark:hover:bg-[#0a66c2] transition-all"
+                    aria-label="LinkedIn"
+                  >
+                    <Icon icon="lucide:linkedin" width={24} height={24} />
+                  </Button>
+                </Tooltip>
               </div>
             </div>
           </motion.div>

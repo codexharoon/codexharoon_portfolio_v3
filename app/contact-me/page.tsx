@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "/contact-me",
   },
   openGraph: {
-    title: "Contact Me | Haroon - Full Stack Web Engineer",
+    title: "Contact Me",
     description: "Get in touch with Haroon for project inquiries, collaborations, or just to say hello.",
     url: "https://codexharoon.com/contact-me",
   },

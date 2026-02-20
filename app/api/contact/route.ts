@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, subject, message } = await req.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -25,12 +25,13 @@ export async function POST(req: Request) {
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER_REDIRECT,
       replyTo: email,
-      subject: `New Portfolio Message from ${name}`,
+      subject: `New Portfolio Message from ${name} - ${subject || 'No Subject'}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
           <h2 style="color: #007AFF;">New Message from Portfolio</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject || 'N/A'}</p>
           <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 20px 0;">
           <p><strong>Message:</strong></p>
           <p style="white-space: pre-wrap; background-color: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>

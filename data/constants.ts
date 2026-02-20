@@ -87,6 +87,7 @@ export const FOOTER_LINKS = {
     { name: "Contact", path: "/#contact", external: false },
   ],
   resources: [
+    { name: "FAQ", path: "/faq", external: false },
     { name: "Privacy Policy", path: "/privacy-policy", external: false },
     { name: "Terms of Service", path: "/terms-of-service", external: false },
   ],
@@ -98,8 +99,8 @@ export const FOOTER_LINKS = {
 
 // ─── Meta / SEO ──────────────────────────────
 export const SEO = {
-  title: "Haroon — iOS & macOS App Developer",
-  titleTemplate: "%s | Haroon — iOS & macOS Developer",
+  title: "Haroon • iOS & macOS App Developer",
+  titleTemplate: "%s | Haroon • iOS & macOS Developer",
   description:
     "Muhammad Haroon is an iOS & macOS App Developer specializing in Swift, UIKit, SwiftUI, and AppKit. Building production-grade native Apple platform applications with a focus on performance and user experience.",
   keywords: [
