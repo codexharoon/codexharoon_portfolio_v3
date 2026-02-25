@@ -68,7 +68,7 @@ function SwiftCodeBlock() {
           <span className="swift-property">{"{"}</span>
         </div>
         <div className="ml-6 sm:ml-8">
-          <span className="swift-comment">// Let&apos;s create something amazing ✨</span>
+          <span className="swift-comment">{`// Let's create something amazing ✨`}</span>
         </div>
         <div className="ml-4">
           <span className="swift-property">{"}"}</span>

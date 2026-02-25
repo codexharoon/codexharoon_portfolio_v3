@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { addToast } from "@heroui/react";
 
 interface ToastOptions {
@@ -10,11 +9,11 @@ interface ToastOptions {
   duration?: number;
 }
 
-export const toast = ({ 
-  title, 
-  description, 
-  color = "default", 
-  duration = 5000 
+export const toast = ({
+  title,
+  description,
+  color = "default",
+  duration = 5000
 }: ToastOptions) => {
   return addToast({
     title,

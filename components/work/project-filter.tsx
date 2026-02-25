@@ -7,16 +7,20 @@ import { Icon } from "@iconify/react";
 interface ProjectFilterProps {
   activeFilter: string;
   onFilterChange: (filter: string) => void;
+  showAll?: boolean;
 }
 
-export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
-  const filters = [
-    { id: "all", label: "All Apps", icon: "lucide:layout-grid" },
-    { id: "mobile", label: "Mobile", icon: "lucide:smartphone" },
+export function ProjectFilter({ activeFilter, onFilterChange, showAll = true }: ProjectFilterProps) {
+  const baseFilters = [
     { id: "ios", label: "iOS", icon: "lucide:apple" },
     { id: "macos", label: "macOS", icon: "lucide:monitor" },
+    { id: "mobile", label: "Mobile", icon: "lucide:smartphone" },
     { id: "web", label: "Web", icon: "lucide:globe" },
   ];
+
+  const filters = showAll
+    ? [{ id: "all", label: "All Apps", icon: "lucide:layout-grid" }, ...baseFilters]
+    : baseFilters;
 
   return (
     <div className="flex justify-center mb-8 sm:mb-10">

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody } from "@heroui/react";
 import { ContactForm } from "../contact/contact-form";
 import { ContactInfo } from "../contact/contact-info";
 

@@ -9,13 +9,10 @@ import { ProjectFilter } from "../work/project-filter";
 import { projects } from "@/data/projects";
 
 export function WorkSection({ reference }: { reference: any }) {
-  const [filter, setFilter] = React.useState("all");
+  const [filter, setFilter] = React.useState("ios");
 
   const filteredProjects = React.useMemo(() => {
-    if (filter === "all") {
-      return projects;
-    }
-    return projects.filter(project => project.category === filter);
+    return projects.filter(project => project.category === filter).slice(0, 4);
   }, [filter]);
 
   return (
@@ -47,7 +44,7 @@ export function WorkSection({ reference }: { reference: any }) {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <ProjectFilter activeFilter={filter} onFilterChange={setFilter} />
+            <ProjectFilter activeFilter={filter} onFilterChange={setFilter} showAll={false} />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {filteredProjects.map((project, index) => (
@@ -63,6 +60,25 @@ export function WorkSection({ reference }: { reference: any }) {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className="mt-10 sm:mt-12 flex justify-center"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              <Button
+                as="a"
+                href="/apps"
+                color="primary"
+                size="lg"
+                className="font-medium px-8 sm:px-10 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                endContent={<Icon icon="lucide:arrow-right" className="w-5 h-5 ml-2" />}
+              >
+                View More
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </div>

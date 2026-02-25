@@ -83,6 +83,7 @@ export const FOOTER_LINKS = {
   quickLinks: [
     { name: "Home", path: "/", external: false },
     { name: "About", path: "/#about", external: false },
+    { name: "Apps", path: "/apps", external: false },
     { name: "Services", path: "/services", external: false },
     { name: "Contact", path: "/#contact", external: false },
   ],

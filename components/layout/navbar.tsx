@@ -13,8 +13,7 @@ import {
 } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import { ThemeSwitcher } from "../theme/theme-switcher";
-import { Icon } from "@iconify/react";
-import { NAV_SECTIONS, PERSONAL_INFO } from "@/data/constants";
+import { NAV_SECTIONS } from "@/data/constants";
 
 interface NavbarProps {
   activeSection: string;
