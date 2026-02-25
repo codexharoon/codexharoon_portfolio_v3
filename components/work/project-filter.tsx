@@ -12,8 +12,10 @@ interface ProjectFilterProps {
 export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
   const filters = [
     { id: "all", label: "All Apps", icon: "lucide:layout-grid" },
-    { id: "ios", label: "iOS", icon: "lucide:smartphone" },
+    { id: "mobile", label: "Mobile", icon: "lucide:smartphone" },
+    { id: "ios", label: "iOS", icon: "lucide:apple" },
     { id: "macos", label: "macOS", icon: "lucide:monitor" },
+    { id: "web", label: "Web", icon: "lucide:globe" },
   ];
 
   return (

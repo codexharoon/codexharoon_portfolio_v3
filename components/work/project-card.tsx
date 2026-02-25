@@ -10,14 +10,17 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const platformIcon = project.category === "ios" ? "lucide:smartphone" : "lucide:monitor";
-  const platformLabel = project.category === "ios" ? "iOS" : "macOS";
+  const platformIcon = project.category === "ios" ? "lucide:apple" : project.category === "macos" ? "lucide:monitor" : project.category === "mobile" ? "lucide:smartphone" : "lucide:globe";
+  const platformLabel = project.category === "ios" ? "iOS" : project.category === "macos" ? "macOS" : project.category === "mobile" ? "Mobile" : "Web";
 
   const gradients: Record<string, string> = {
     "1": "from-blue-500 to-cyan-400",
     "2": "from-purple-500 to-pink-400",
     "3": "from-green-500 to-teal-400",
     "4": "from-orange-500 to-red-400",
+    "5": "from-indigo-500 to-purple-400",
+    "6": "from-sky-500 to-blue-400",
+    "7": "from-emerald-500 to-teal-400",
   };
 
   const gradient = gradients[project.id] || "from-primary to-secondary";
@@ -64,6 +67,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </span>
           ))}
         </div>
+
+        {/* Project Link */}
+        {project.link && (
+          <div className="pt-3 sm:pt-4 mt-auto">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-2 w-full py-2 sm:py-2.5 px-4 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-all text-xs sm:text-sm font-medium"
+            >
+              <span>Visit Project</span>
+              <Icon icon="lucide:external-link" className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

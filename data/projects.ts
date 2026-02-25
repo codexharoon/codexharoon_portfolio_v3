@@ -57,4 +57,48 @@ export const projects: Project[] = [
       "Used Firebase and AWS S3 for data storage and asset management",
     ],
   },
+  {
+    id: "5",
+    title: "Spend in Peace",
+    category: "web",
+    link: "https://spendinpeace.vercel.app",
+    image: "https://picsum.photos/600/400?random=finance",
+    description:
+      "A comprehensive finance platform tracking expenses, managing budgets, and providing AI-powered insights.",
+    technologies: ["Next.js", "MongoDB", "Stripe", "AI Chat", "TailwindCSS", "shadcn/ui"],
+    highlights: [
+      "Built a secure full-stack web application with Next.js and MongoDB",
+      "Integrated an AI chat assistant for personalized financial advice based on user data",
+      "Implemented Stripe payment gateway and smart budget tracking with real-time analytics",
+    ],
+  },
+  {
+    id: "6",
+    title: "Mian Cars Rental & Tours",
+    category: "web",
+    link: "http://miancarsrentalandtours.com/",
+    image: "https://picsum.photos/600/400?random=car",
+    description:
+      "A car rental and tours booking website offering luxury vehicle rentals, affordable tours, and hotel booking services across Pakistan.",
+    technologies: ["HTML5", "CSS3", "JavaScript"],
+    highlights: [
+      "Designed and developed a responsive interface for car rentals and tour bookings",
+      "Showcases services including vehicle rental, hotel bookings, and custom tour packages",
+      "Built using core web technologies focusing on optimal performance and accessibility",
+    ],
+  },
+  {
+    id: "7",
+    title: "GoVolunteer",
+    category: "mobile",
+    image: "https://picsum.photos/600/400?random=volunteer",
+    description:
+      "A cross-platform ride-sharing mobile application that connects users traveling along the same routes, allowing them to split rides and commute together seamlessly.",
+    technologies: ["Flutter", "Dart", "Firebase Auth", "Cloud Firestore"],
+    highlights: [
+      "Developed a unified, cross-platform mobile application utilizing Flutter for a native-like experience on both iOS and Android",
+      "Engineered a real-time ride-matching system using Cloud Firestore for efficient database querying and updates",
+      "Implemented secure and straightforward user authentication loops integrating both Google and GitHub OAuth via Firebase Auth",
+    ],
+  },
 ];
