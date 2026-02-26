@@ -23,8 +23,8 @@ export function ProjectFilter({ activeFilter, onFilterChange, showAll = true }: 
     : baseFilters;
 
   return (
-    <div className="flex justify-center mb-8 sm:mb-10">
-      <div className="inline-flex glass-card p-1 sm:p-1.5 gap-0.5 sm:gap-1">
+    <div className="flex justify-center w-full mb-6 sm:mb-10 px-2 sm:px-0">
+      <div className="flex flex-wrap justify-center glass-card p-1 sm:p-1.5 gap-1.5 sm:gap-2">
         {filters.map((filter) => (
           <Button
             key={filter.id}
