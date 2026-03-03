@@ -46,7 +46,7 @@ export function AboutSection({ reference }: { reference: any }) {
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-3 sm:mb-4 flex items-center justify-center p-0.5">
                       <Image
                         src="/profile.jpg"
-                        alt={PERSONAL_INFO.name}
+                        alt={`${PERSONAL_INFO.name} - Native iOS, macOS, and Web Developer`}
                         width={96}
                         height={96}
                         className="w-full h-full rounded-full object-cover"

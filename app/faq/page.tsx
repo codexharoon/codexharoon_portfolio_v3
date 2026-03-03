@@ -5,6 +5,9 @@ import { FaqContent } from "@/components/pages/faq-content";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Frequently asked questions about native iOS and macOS app development services offered by Haroon.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQ() {

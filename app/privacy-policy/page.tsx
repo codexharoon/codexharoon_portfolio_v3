@@ -5,6 +5,9 @@ import { PrivacyPolicyContent } from "@/components/pages/privacy-policy-content"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy policy for Code x Haroon's portfolio website.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicy() {

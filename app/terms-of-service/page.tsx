@@ -5,6 +5,9 @@ import { TermsOfServiceContent } from "@/components/pages/terms-of-service-conte
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of service for Code x Haroon's portfolio website.",
+  alternates: {
+    canonical: "/terms-of-service",
+  },
 };
 
 export default function TermsOfService() {
