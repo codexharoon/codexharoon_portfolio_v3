@@ -3,6 +3,7 @@
 import React from "react";
 import { Button, Input, Textarea } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 export function ContactForm() {
   const [formData, setFormData] = React.useState({
@@ -31,7 +32,7 @@ export function ContactForm() {
       if (response.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setStatus("idle"), 5000);
+        // Removed auto-timeout so users can see the success state
       } else {
         setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
@@ -42,6 +43,44 @@ export function ContactForm() {
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
+
+  if (status === "success") {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-col items-center justify-center p-6 sm:p-10 text-center space-y-4 h-full min-h-[350px] bg-green-500/5 rounded-2xl border border-green-500/10"
+      >
+        <motion.div 
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
+          className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/10 rounded-full flex items-center justify-center mb-2"
+        >
+          <Icon icon="lucide:check-circle-2" className="text-green-500 w-8 h-8 sm:w-10 sm:h-10" />
+        </motion.div>
+        
+        <h3 className="text-xl sm:text-2xl font-bold font-heading text-green-600 dark:text-green-400">
+          Message Sent Successfully!
+        </h3>
+        
+        <p className="text-gray-500 dark:text-gray-400 max-w-sm mx-auto text-sm sm:text-base leading-relaxed">
+          Thank you for reaching out. I've received your message and will get back to you within 24-48 hours.
+        </p>
+        
+        <Button 
+          variant="flat" 
+          color="primary" 
+          className="mt-4 sm:mt-6 font-medium px-6"
+          onPress={() => setStatus("idle")}
+          startContent={<Icon icon="lucide:refresh-cw" width={16} />}
+        >
+          Send Another Message
+        </Button>
+      </motion.div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
@@ -93,25 +132,18 @@ export function ContactForm() {
         <Button
           type="submit"
           isLoading={status === "loading"}
-          className={`w-full md:w-auto font-medium rounded-full px-8 ${status === "success"
-              ? "bg-green-500 hover:bg-green-600 text-white"
-              : status === "error"
-                ? "bg-red-500 hover:bg-red-600 text-white"
-                : "bg-primary hover:bg-primary/90 text-white"
-            }`}
+          className={`w-full md:w-auto font-medium rounded-full px-8 ${
+            status === "error"
+              ? "bg-red-500 hover:bg-red-600 text-white"
+              : "bg-primary hover:bg-primary/90 text-white"
+          }`}
           startContent={status === "idle" ? <Icon icon="lucide:send" width={16} height={16} /> : null}
         >
           {status === "idle" && "Send Message"}
           {status === "loading" && "Sending..."}
-          {status === "success" && "Message Sent!"}
           {status === "error" && "Failed to Send"}
         </Button>
 
-        {status === "success" && (
-          <p className="text-sm text-green-600 dark:text-green-400 font-medium animate-in fade-in slide-in-from-top-1">
-            Thanks for reaching out! I&apos;ll get back to you soon.
-          </p>
-        )}
         {status === "error" && (
           <p className="text-sm text-red-600 dark:text-red-400 font-medium animate-in fade-in slide-in-from-top-1">
             Something went wrong. Please try again later.
