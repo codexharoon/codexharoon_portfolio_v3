@@ -44,6 +44,20 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "8",
+    title: "Expense Manager",
+    category: "macos",
+    image: "https://picsum.photos/600/400?random=expense",
+    description:
+      "A macOS expense management application built with AppKit featuring wallet creation, monthly budgets, transaction tracking, budget alerts, and rich analytics with graphs and reports.",
+    technologies: ["Swift", "AppKit", "Core Data", "Charts", "Notifications"],
+    highlights: [
+      "Built a clean, modern dashboard for managing multiple wallets and monthly budgets",
+      "Implemented full transaction tracking with categorization and budget-exceeded notifications",
+      "Developed a rich analytics section with interactive graphs and detailed financial reports",
+    ],
+  },
+  {
     id: "4",
     title: "AI Tattoo Maker",
     category: "ios",

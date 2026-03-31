@@ -105,8 +105,37 @@ export function ServicesPage() {
     }
   ];
 
+  // Service JSON-LD schema for rich results
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+        provider: {
+          "@type": "Person",
+          name: "Muhammad Haroon",
+          url: "https://codexharoon.com",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Pakistan",
+        },
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background pt-24 pb-16">
+      {/* Service structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
         {/* Back link */}
         <motion.div

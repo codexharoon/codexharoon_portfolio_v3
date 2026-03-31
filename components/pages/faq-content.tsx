@@ -42,8 +42,28 @@ export function FaqContent() {
     }
   ];
 
+  // FAQPage JSON-LD schema for rich snippets in Google Search
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen pt-20 pb-16">
+      {/* FAQPage structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -59,7 +79,7 @@ export function FaqContent() {
             <div className="text-center mb-12">
               <h1 className="text-4xl font-heading font-bold mb-4">Frequently Asked Questions</h1>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Find answers to common questions about my services, process, and working relationship.
+                Find answers to common questions about my iOS, macOS, web, and cross-platform app development services, process, and working relationship.
               </p>
             </div>
 

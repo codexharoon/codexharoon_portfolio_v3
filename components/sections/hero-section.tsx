@@ -107,7 +107,7 @@ export function HeroSection({ reference }: { reference: any }) {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="glass-badge px-3 py-2 flex items-center gap-2">
-          <img src="/swift.png" alt="Swift" width={20} height={20} />
+          <img src="/swift.png" alt="Swift programming language for iOS development" width={20} height={20} />
           <span className="text-xs font-medium text-primary">Swift</span>
         </div>
       </motion.div>
@@ -118,7 +118,7 @@ export function HeroSection({ reference }: { reference: any }) {
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       >
         <div className="glass-badge px-3 py-2 flex items-center gap-2">
-          <img src="/xcode.png" alt="Xcode" width={20} height={20} />
+          <img src="/xcode.png" alt="Xcode IDE for macOS and iOS app development" width={20} height={20} />
           <span className="text-xs font-medium text-primary">Xcode</span>
         </div>
       </motion.div>
@@ -129,7 +129,7 @@ export function HeroSection({ reference }: { reference: any }) {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       >
         <div className="glass-badge px-3 py-2 flex items-center gap-2">
-          <img src="/swiftui.png" alt="SwiftUI" width={20} height={20} />
+          <img src="/swiftui.png" alt="SwiftUI framework for building iOS and macOS user interfaces" width={20} height={20} />
           <span className="text-xs font-medium text-primary">SwiftUI</span>
         </div>
       </motion.div>
@@ -164,6 +164,7 @@ export function HeroSection({ reference }: { reference: any }) {
               Developer
             </span>
           </h1>
+          <h2 className="sr-only">Software Engineer based in Punjab, Pakistan — Specializing in Swift, UIKit, SwiftUI & AppKit</h2>
 
           <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-6 sm:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
             {PROFILE.short}

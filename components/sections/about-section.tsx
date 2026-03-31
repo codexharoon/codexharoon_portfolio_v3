@@ -26,7 +26,7 @@ export function AboutSection({ reference }: { reference: any }) {
               About Me
             </h2>
             <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-              Passionate about crafting native Apple platform experiences
+              Passionate about crafting native Apple platform experiences — based in Punjab, Pakistan
             </p>
           </motion.div>
 
@@ -46,7 +46,7 @@ export function AboutSection({ reference }: { reference: any }) {
                     <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-3 sm:mb-4 flex items-center justify-center p-0.5">
                       <Image
                         src="/profile.jpg"
-                        alt={`${PERSONAL_INFO.name} - Native iOS, macOS, and Web Developer`}
+                        alt={`${PERSONAL_INFO.name} - iOS & macOS App Developer and Software Engineer in Pakistan`}
                         width={96}
                         height={96}
                         className="w-full h-full rounded-full object-cover"
