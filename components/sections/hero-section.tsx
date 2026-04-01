@@ -157,14 +157,14 @@ export function HeroSection({ reference }: { reference: any }) {
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 leading-tight">
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              iOS & macOS App
+              Software Engineer
             </span>
             <br />
             <span className="text-text">
-              Developer
+              iOS / macOS Dev
             </span>
           </h1>
-          <h2 className="sr-only">Software Engineer based in Punjab, Pakistan — Specializing in Swift, UIKit, SwiftUI & AppKit</h2>
+          <h2 className="sr-only">Software Engineer based in Punjab, Pakistan — Specializing in Swift, UIKit, SwiftUI & AppKit. Delivering high-quality iOS and macOS applications globally.</h2>
 
           <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-6 sm:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
             {PROFILE.short}

@@ -24,7 +24,7 @@ export const SOCIAL_LINKS = {
 
 // ─── Profile Bio ─────────────────────────────
 export const PROFILE = {
-  short: "Pakistan-based Software Engineer crafting native iOS & macOS applications with Swift — delivering polished user experiences that follow Apple's design philosophy.",
+  short: "I'm a Pakistan-based Software Engineer crafting native iOS & macOS applications using Swift. I specialize in delivering polished, high-performance user experiences that follow Apple's Human Interface Guidelines.",
   full: `Software Engineer (iOS & macOS) based in Punjab, Pakistan, with hands-on professional experience specializing in Swift, UIKit, and SwiftUI, with working knowledge of AppKit. Experienced in developing and maintaining production-level Apple platform applications, implementing clean UI flows, and writing structured, maintainable code. Available for freelance and remote iOS development projects worldwide.`,
   extended: `Skilled in developing intuitive user interfaces, handling data persistence, and implementing core and advanced app features. Alongside native Apple platform development, I also provide services including custom website development, cross-platform mobile apps, and full-stack web applications. Comfortable collaborating with backend engineers, UI/UX designers, and cross-functional tech teams, as well as working independently on assigned features. Strong at understanding requirements, delivering features with attention to performance and user experience, and continuously improving skills while following Apple platform best practices.`,
 } as const;
