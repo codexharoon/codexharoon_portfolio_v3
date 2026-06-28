@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Neue Machina';
+  src: url('/fonts/NeueMachina.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Juana';
+  src: url('/fonts/Juana.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #F5F5F7;
   --text: #1D1D1F;
@@ -34,8 +50,12 @@ html {
 body {
   color: var(--text);
   background-color: var(--background);
+  font-family: var(--font-neue-machina), 'Neue Machina', sans-serif;
   overflow-x: hidden;
   width: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ─── Liquid Glass Effect ──────────────────── */

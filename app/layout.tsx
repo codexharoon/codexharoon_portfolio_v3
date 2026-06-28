@@ -2,19 +2,28 @@ import type { Metadata, Viewport } from "next";
 import { HeroUIProvider } from "@heroui/react";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/navigation/scroll-to-top";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { SEO, PERSONAL_INFO } from "@/data/constants";
+import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
-// Inter — closest web font to SF Pro
-const inter = Inter({
-  subsets: ["latin"],
+// Neue Machina — Primary Geometric Sans
+const neueMachina = localFont({
+  src: "../public/fonts/NeueMachina.otf",
+  variable: "--font-neue-machina",
   display: "swap",
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
+  preload: true,
+});
+
+// Juana — Accent Italic Serif
+const juana = localFont({
+  src: "../public/fonts/Juana.otf",
+  variable: "--font-juana",
+  display: "swap",
+  preload: true,
 });
 
 // Metadata for SEO
@@ -28,6 +37,12 @@ export const metadata: Metadata = {
   authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.website }],
   creator: PERSONAL_INFO.name,
   publisher: PERSONAL_INFO.brandName,
+  category: "Technology",
+  classification: "Portfolio & Software Development Services",
+  referrer: "origin-when-cross-origin",
+  alternates: {
+    canonical: PERSONAL_INFO.website,
+  },
   formatDetection: {
     email: false,
     telephone: false,
@@ -90,10 +105,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} scroll-smooth`}
+      className={`${neueMachina.variable} ${juana.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="bg-background font-body text-text">
+        <JsonLd />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <HeroUIProvider>
             <main>

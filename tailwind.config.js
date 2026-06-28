@@ -26,8 +26,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        heading: ["Inter", "SF Pro Display", "system-ui", "sans-serif"],
-        body: ["Inter", "SF Pro Text", "system-ui", "sans-serif"],
+        heading: ["var(--font-neue-machina)", "Inter", "SF Pro Display", "system-ui", "sans-serif"],
+        body: ["var(--font-neue-machina)", "Inter", "SF Pro Text", "system-ui", "sans-serif"],
+        serif: ["var(--font-juana)", "Georgia", "serif"],
         mono: ["SF Mono", "Fira Code", "Cascadia Code", "monospace"],
       },
       borderRadius: {

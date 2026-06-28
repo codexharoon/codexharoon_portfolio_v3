@@ -1,0 +1,72 @@
+# Muhammad Haroon • Code x Haroon
+
+> Software Engineer, iOS & macOS App Developer, and Mobile Architect based in Punjab, Pakistan. Specializing in native Apple platform development using Swift, UIKit, SwiftUI, and AppKit. Available for remote and freelance software engineering projects worldwide.
+
+## About
+
+Muhammad Haroon is a professional Software Engineer crafting polished, high-performance native iOS and macOS applications. With deep expertise in Apple platform technologies, he focuses on delivering clean user experiences that strictly follow Apple's Human Interface Guidelines (HIG). Alongside native mobile and desktop app development, he builds robust cross-platform mobile apps and full-stack web applications.
+
+- **Brand Name**: Code x Haroon
+- **Title**: iOS & macOS App Developer | Software Engineer
+- **Location**: Punjab, Pakistan
+- **Email**: info@codexharoon.com
+- **Phone**: (+92) 324 5003102
+- **Website**: https://codexharoon.com
+
+## Key Stats & Highlights
+
+- **Experience**: 1+ Years Professional Hands-on Experience
+- **Apps Built**: 8+ Production-Grade Applications
+- **Platforms**: Native iOS, macOS, Cross-Platform Mobile (Flutter), and Web (Next.js)
+
+## Technical Skills & Core Competencies
+
+### Apple Platform Ecosystem
+- **Languages**: Swift
+- **UI Frameworks**: UIKit, SwiftUI, AppKit
+- **Development Tools**: Xcode, TestFlight, App Store Submission
+- **System Frameworks**: CoreData, CoreML, Vision API, MapKit, PencilKit, Combine, LocalAuthentication (Face ID / Touch ID)
+
+### Web & Cross-Platform Technologies
+- **Mobile**: Flutter, Dart
+- **Web**: Next.js, React, TailwindCSS, HTML5, CSS3, JavaScript, TypeScript
+- **Backend & Cloud**: Firebase (Auth, Firestore), AWS S3, MongoDB, REST APIs, Stripe Payment Gateway
+- **Version Control & DevOps**: Git, GitHub
+
+## Professional Experience
+
+### iOS & macOS Developer @ TS Technology (2025 – Present)
+- Developing production iOS and macOS applications using Swift, UIKit, and AppKit.
+- Architecting and shipping AI-driven applications incorporating CoreML, Vision API, custom SVG editing, and cloud integrations.
+- Building desktop macOS utilities featuring custom editors, mapping components, and biometric security.
+- Collaborating with cross-functional tech teams and designers while independently delivering core application features.
+
+## Featured Applications & Projects
+
+### Native iOS Applications
+- **AI Coin Scanner**: An AI-powered real-time coin detection and classification app using custom-trained ML models integrated with Vision and Camera API. Features live exchange rates and smooth on-device performance.
+- **Private Notes**: A secure notes application featuring a fully custom rich text editor with drawing support (PencilKit), biometric locking (Face ID / Touch ID), custom reminders, and alarm snoozing.
+- **AI Tattoo Maker**: An innovative tattoo design studio app with a custom SVG-based editor supporting text and image elements, AI image generation, speech-to-text prompt input, and AWS S3 / Firebase backend integration.
+
+### Native macOS Utilities
+- **Flight Tracker**: A macOS desktop flight tracking app built with Swift and AppKit. Integrates MapKit to display real-time aircraft locations, nearby airport discovery, and live telemetry from REST APIs.
+- **Expense Manager**: A comprehensive financial desktop application for macOS built with AppKit and Core Data. Features multi-wallet creation, monthly budgeting, budget-exceeded alerts, and rich visual analytics with charts.
+
+### Cross-Platform Mobile & Full-Stack Web
+- **Spend in Peace** (Web): A full-stack financial platform built with Next.js, MongoDB, TailwindCSS, and Stripe. Features an AI chat assistant providing personalized financial insights. [Visit Site](https://spendinpeace.vercel.app)
+- **GoVolunteer** (Mobile): A cross-platform ride-sharing app built with Flutter and Firebase. Connects commuters traveling along identical routes with real-time matching via Cloud Firestore and OAuth authentication.
+- **Mian Cars Rental & Tours** (Web): A responsive car rental and tours booking portal showcasing luxury vehicle rentals and custom tour packages across Pakistan. [Visit Site](http://miancarsrentalandtours.com/)
+
+## Certifications
+
+- **Linear Algebra for Machine Learning and Data Science** — Coursera (Mar 2023)
+- **Master Linear Data Structure** — Codedamn (May 2024)
+- **Introduction to Data Structures and Algorithms** — Codedamn (Feb 2024)
+- **Git and GitHub Mastery Workshop** — SE Society NTU (Dec 2023)
+
+## Contact & Links
+
+- **Main Website**: https://codexharoon.com
+- **GitHub**: https://github.com/codexharoon
+- **LinkedIn**: https://linkedin.com/in/codexharoon
+- **Email**: info@codexharoon.com

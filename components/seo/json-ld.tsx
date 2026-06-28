@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { PERSONAL_INFO, SOCIAL_LINKS, SEO } from "@/data/constants";
 
